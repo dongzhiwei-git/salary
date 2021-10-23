@@ -1,22 +1,22 @@
 package services
 
 import (
+	"fmt"
 	"inherited/internal/dao"
 	"inherited/internal/models"
+	"log"
 )
 
 type SysUser struct {
 }
 
-func (s *SysUser) CreateSysUser(name, password string) (err error) {
-
-	var adminUser = models.SysUser{
-
-		UserName: name,
-		Password: password,
+func (s *SysUser) GetSysUser(name int, password string) (userInfo models.SysUser, err error) {
+	adminUser := models.SysUser{}
+	err = dao.Orm.Where("num = ? AND password = ?", name, password).Find(&adminUser).Error
+	fmt.Println("cat")
+	if err != nil{
+		log.Println(err)
 	}
 
-	err = dao.Orm.Create(&adminUser).Error
-
-	return
+	return adminUser, err
 }

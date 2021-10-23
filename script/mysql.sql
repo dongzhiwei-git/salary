@@ -77,3 +77,34 @@ CREATE TABLE `need`
     PRIMARY KEY (`number`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT ='需求表';
+
+CREATE TABLE `user`
+(
+    `id`        bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `user_name` varchar(20)         NOT NULL DEFAULT '' COMMENT '姓名',
+    `num`       bigint(20)          NOT NULL DEFAULT 0 COMMENT '工号',
+    `password`  varchar(30)         NOT NULL DEFAULT '' COMMENT '密码',
+    `plan_a`    bigint(20)          NOT NULL DEFAULT 0 COMMENT '计划A',
+    `plan_b`    bigint(20)          NOT NULL DEFAULT 0 COMMENT '计划B',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='用户表';
+
+CREATE TABLE `print`
+(
+    `id`        bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `user_name` varchar(20)         NOT NULL DEFAULT '' COMMENT '姓名',
+    `num`       bigint(20)          NOT NULL DEFAULT 0 COMMENT '工号',
+    `scheme`    char                NOT NULL DEFAULT '' COMMENT '方案 ',
+    `money`     bigint(20)          NOT NULL DEFAULT 0 COMMENT 'salary',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='打印表';
+
+CREATE TABLE `code`
+(
+    `id`   bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+    `code` varchar(20)         NOT NULL DEFAULT '' COMMENT '验证码',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4 COMMENT ='验证码表';

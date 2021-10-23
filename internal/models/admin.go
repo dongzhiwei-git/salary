@@ -1,11 +1,13 @@
 package models
 
 type SysUser struct {
-	Id       int    `gorm:"id" json:"id" form:"id"`
-	UserName string `gorm:"user_name" json:"user_name" from:"user_name"`
-	Password string `gorm:"password" json:"password" from:"password"`
+	Id       int    `gorm:"id" json:"id" form:"id" `
+	Num      int    `gorm:"num" json:"num" binding:"required"`
+	Password string `gorm:"password" json:"password" binding:"required"`
+	PlayA    int  `gorm:"play_a" json:"play_a" `
+	PlayB    int  `gorm:"play_b" json:"play_b" `
 }
 
 func (SysUser) TableName() string {
-	return "sys_user"
+	return "user"
 }
