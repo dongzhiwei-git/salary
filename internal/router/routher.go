@@ -18,9 +18,11 @@ func InitRouter() {
 		ctx.JSON(http.StatusOK, nil)
 	})
 
+	r.POST("/login", api.GetAdminUser)
+	r.POST("/sub", api.CreateSubInfo)
 	var admin = r.Group("/admin")
 	{
-		admin.POST("/reg", api.CreateAdminUser)
+		admin.POST("/login", )
 	}
 
 	// setup listen
