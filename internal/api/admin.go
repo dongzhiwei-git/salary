@@ -43,9 +43,12 @@ import (
 func GetAdminUser(ctx *gin.Context) {
 	//Parameter parsing
 	adminUser := models.SysUser{}
-	err := ctx.BindJSON(&adminUser)
+	err := ctx.ShouldBindJSON(&adminUser)
 	if err != nil {
 		fmt.Printf("[api.CreateAdminUser], Parameter parsing error")
+		ctx.JSON(http.StatusOK, gin.H{
+			"date": "格式不对",
+		})
 		return
 	}
 	num := adminUser.Num
@@ -57,15 +60,18 @@ func GetAdminUser(ctx *gin.Context) {
 	}
 
 	sysUser := new(services.SysUser)
-	userInfo, err := sysUser.GetSysUser(num, password)
+	adminInfo, err := sysUser.GetSysUser(num, password)
 	if err != nil {
 		fmt.Printf("[api.CreateAdminUser], err: %v", err)
-
+		ctx.JSON(http.StatusOK, gin.H{
+			"msg": "账号或密码不对",
+		})
 		return
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{
-		"date": userInfo,
+		"msg": "登录成功",
+		"data": adminInfo,
 	})
 
 	return
@@ -77,7 +83,7 @@ func CreateSubInfo(ctx *gin.Context) {
 	info := models.Print{}
 	err := ctx.BindJSON(&info)
 	if err != nil {
-		fmt.Printf("[api.CreateAdminUser], Parameter parsing error")
+		fmt.Println("[api.CreateAdminUser], Parameter parsing error", err)
 		return
 	}
 
