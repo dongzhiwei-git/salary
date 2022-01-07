@@ -3,6 +3,7 @@ package api
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"inherited/internal/middleware"
 	"inherited/internal/models"
 	"inherited/internal/services"
 	"log"
@@ -81,13 +82,51 @@ func CreateSubInfo(ctx *gin.Context) {
 	}
 
 	subInfo := new(services.Print)
-	err = subInfo.CreateSubInfo(info.Num, info.Money)
+	err = subInfo.CreateSubInfo(info.Num, info.Money, info.UserName, info.Scheme)
 	if err != nil {
 		fmt.Printf("[api.CreateAdminUser], err: %v", err)
 
 		return
 	}
 
+	ctx.JSON(http.StatusOK, gin.H{
+		"status": "OK",
+	})
+
+	return
+}
+
+// 校验code
+func VerifyCode(ctx *gin.Context) {
+	//Parameter parsing
+	info := models.Code{}
+	err := ctx.BindJSON(&info)
+	if err != nil {
+		fmt.Printf("[api.CreateAdminUser], Parameter parsing error")
+		return
+	}
+
+	codeInfo := new(services.Code)
+	code,err := codeInfo.VerifyCode(info.Code)
+	if err != nil {
+		fmt.Printf("[api.CreateAdminUser], err: %v", err)
+
+		return
+	}
+	log.Println("code",code.Code, "er", info.Code )
+    if code.Code != info.Code{
+		ctx.JSON(http.StatusOK, gin.H{
+			"msg": "提取码不正确",
+		})
+		return
+	}
+	salaryInfo := new(services.Print)
+	salary, err := salaryInfo.GetSalaryInfo()
+	if err != nil {
+		log.Println("[VerifyCode] ", err)
+		return
+	}
+	middleware.ToExcel(salary, ctx)
 	ctx.JSON(http.StatusOK, gin.H{
 		"status": "OK",
 	})
