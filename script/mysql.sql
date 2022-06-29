@@ -83,6 +83,7 @@ CREATE TABLE `need`
 
 CREATE TABLE `user`
 
+
 (
     `id`        bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `user_name` varchar(20)         NOT NULL DEFAULT '' COMMENT '姓名',
