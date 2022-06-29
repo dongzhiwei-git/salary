@@ -91,10 +91,16 @@ CREATE TABLE `user`
 =======
 
 
+<<<<<<< HEAD
 
 >>>>>>> test
 
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> c3616e298311b25e5d59ebc8839f1a49e3e69849
+>>>>>>> test
 (
     `id`        bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `user_name` varchar(20)         NOT NULL DEFAULT '' COMMENT '姓名',
@@ -156,14 +162,53 @@ CREATE TABLE `code`
 >>>>>>> 81203b5 (选择A，B)
 =======
     PRIMARY KEY (`id`)
+
+
+
+
+
+
+
 ) ENGINE = InnoDB
+
+
+    
+
+
+
   DEFAULT CHARSET = utf8mb4 COMMENT ='打印表';
 
+
+
+
+
+
+
+
 CREATE TABLE `code`
+
+
 (
+
+    
     `id`   bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `code` varchar(20)         NOT NULL DEFAULT '' COMMENT '验证码',
     PRIMARY KEY (`id`)
+
+
+
+
+
+
 ) ENGINE = InnoDB
+<<<<<<< HEAD
   DEFAULT CHARSET = utf8mb4 COMMENT ='验证码表';
 >>>>>>> d73ad65 (基本完成)
+=======
+
+    
+
+
+
+  DEFAULT CHARSET = utf8mb4 COMMENT ='验证码表';
+>>>>>>> test
