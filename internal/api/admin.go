@@ -4,9 +4,13 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 <<<<<<< HEAD
+<<<<<<< HEAD
 	"inherited/internal/middleware"
 =======
 >>>>>>> 81203b5 (选择A，B)
+=======
+	"inherited/internal/middleware"
+>>>>>>> d73ad65 (基本完成)
 	"inherited/internal/models"
 	"inherited/internal/services"
 	"log"
@@ -110,10 +114,14 @@ func CreateSubInfo(ctx *gin.Context) {
 
 	subInfo := new(services.Print)
 <<<<<<< HEAD
+<<<<<<< HEAD
 	err = subInfo.CreateSubInfo(info.Num, info.Money, info.UserName, info.Scheme)
 =======
 	err = subInfo.CreateSubInfo(info.Num, info.Money)
 >>>>>>> 81203b5 (选择A，B)
+=======
+	err = subInfo.CreateSubInfo(info.Num, info.Money, info.UserName, info.Scheme)
+>>>>>>> d73ad65 (基本完成)
 	if err != nil {
 		fmt.Printf("[api.CreateAdminUser], err: %v", err)
 
@@ -163,6 +171,44 @@ func VerifyCode(ctx *gin.Context) {
 		"status": "OK",
 =======
 >>>>>>> 81203b5 (选择A，B)
+	})
+
+	return
+}
+
+// 校验code
+func VerifyCode(ctx *gin.Context) {
+	//Parameter parsing
+	info := models.Code{}
+	err := ctx.BindJSON(&info)
+	if err != nil {
+		fmt.Printf("[api.CreateAdminUser], Parameter parsing error")
+		return
+	}
+
+	codeInfo := new(services.Code)
+	code,err := codeInfo.VerifyCode(info.Code)
+	if err != nil {
+		fmt.Printf("[api.CreateAdminUser], err: %v", err)
+
+		return
+	}
+	log.Println("code",code.Code, "er", info.Code )
+    if code.Code != info.Code{
+		ctx.JSON(http.StatusOK, gin.H{
+			"msg": "提取码不正确",
+		})
+		return
+	}
+	salaryInfo := new(services.Print)
+	salary, err := salaryInfo.GetSalaryInfo()
+	if err != nil {
+		log.Println("[VerifyCode] ", err)
+		return
+	}
+	middleware.ToExcel(salary, ctx)
+	ctx.JSON(http.StatusOK, gin.H{
+		"status": "OK",
 	})
 
 	return
