@@ -88,9 +88,12 @@ CREATE TABLE `need`
 CREATE TABLE `user`
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> c3616e298311b25e5d59ebc8839f1a49e3e69849
 (
     `id`        bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `user_name` varchar(20)         NOT NULL DEFAULT '' COMMENT '姓名',
