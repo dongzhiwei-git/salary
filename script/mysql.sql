@@ -122,6 +122,8 @@ CREATE TABLE `code`
     `code` varchar(20)         NOT NULL DEFAULT '' COMMENT '验证码',
     PRIMARY KEY (`id`)
 
+
+
 ) ENGINE = InnoDB
 
     
