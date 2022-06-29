@@ -22,8 +22,12 @@ func InitRouter() {
 	r.POST("/sub", api.CreateSubInfo)
 	var admin = r.Group("/admin")
 	{
+<<<<<<< HEAD
 		admin.POST("/login")
 		admin.POST("/get-table", api.VerifyCode)
+=======
+		admin.POST("/login", )
+>>>>>>> 81203b5 (选择A，B)
 	}
 
 	// setup listen

@@ -33,6 +33,7 @@ func TestCreateSubInfo(t *testing.T) {
 	}
 
 	SysUser := new(services.Print)
+<<<<<<< HEAD
 	_ = SysUser.CreateSubInfo(199020440236, 2000000, "dong", "A")
 
 }
@@ -48,5 +49,8 @@ func TestGetTableInfo(t *testing.T) {
 	info, _ := SysUser.GetSalaryInfo()
 
 	fmt.Println("answer", info)
+=======
+	_ = SysUser.CreateSubInfo(199020440236, 2000000)
+>>>>>>> 81203b5 (选择A，B)
 
 }

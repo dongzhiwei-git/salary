@@ -3,7 +3,10 @@ package api
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
+<<<<<<< HEAD
 	"inherited/internal/middleware"
+=======
+>>>>>>> 81203b5 (选择A，B)
 	"inherited/internal/models"
 	"inherited/internal/services"
 	"log"
@@ -46,9 +49,12 @@ func GetAdminUser(ctx *gin.Context) {
 	err := ctx.ShouldBindJSON(&adminUser)
 	if err != nil {
 		fmt.Printf("[api.CreateAdminUser], Parameter parsing error")
+<<<<<<< HEAD
 		ctx.JSON(http.StatusOK, gin.H{
 			"date": "格式不对",
 		})
+=======
+>>>>>>> 81203b5 (选择A，B)
 		return
 	}
 	num := adminUser.Num
@@ -60,18 +66,29 @@ func GetAdminUser(ctx *gin.Context) {
 	}
 
 	sysUser := new(services.SysUser)
+<<<<<<< HEAD
 	adminInfo, err := sysUser.GetSysUser(num, password)
 	if err != nil {
 		fmt.Printf("[api.CreateAdminUser], err: %v", err)
 		ctx.JSON(http.StatusOK, gin.H{
 			"msg": "账号或密码不对",
 		})
+=======
+	userInfo, err := sysUser.GetSysUser(num, password)
+	if err != nil {
+		fmt.Printf("[api.CreateAdminUser], err: %v", err)
+
+>>>>>>> 81203b5 (选择A，B)
 		return
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{
+<<<<<<< HEAD
 		"msg": "登录成功",
 		"data": adminInfo,
+=======
+		"date": userInfo,
+>>>>>>> 81203b5 (选择A，B)
 	})
 
 	return
@@ -83,12 +100,20 @@ func CreateSubInfo(ctx *gin.Context) {
 	info := models.Print{}
 	err := ctx.BindJSON(&info)
 	if err != nil {
+<<<<<<< HEAD
 		fmt.Println("[api.CreateAdminUser], Parameter parsing error", err)
+=======
+		fmt.Printf("[api.CreateAdminUser], Parameter parsing error")
+>>>>>>> 81203b5 (选择A，B)
 		return
 	}
 
 	subInfo := new(services.Print)
+<<<<<<< HEAD
 	err = subInfo.CreateSubInfo(info.Num, info.Money, info.UserName, info.Scheme)
+=======
+	err = subInfo.CreateSubInfo(info.Num, info.Money)
+>>>>>>> 81203b5 (选择A，B)
 	if err != nil {
 		fmt.Printf("[api.CreateAdminUser], err: %v", err)
 
@@ -97,6 +122,7 @@ func CreateSubInfo(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, gin.H{
 		"status": "OK",
+<<<<<<< HEAD
 	})
 
 	return
@@ -135,6 +161,8 @@ func VerifyCode(ctx *gin.Context) {
 	middleware.ToExcel(salary, ctx)
 	ctx.JSON(http.StatusOK, gin.H{
 		"status": "OK",
+=======
+>>>>>>> 81203b5 (选择A，B)
 	})
 
 	return
