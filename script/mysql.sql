@@ -78,11 +78,21 @@ CREATE TABLE `need`
     `need_class`  char(4)             NOT NULL DEFAULT '' COMMENT '需求类别',
     `need_detail` varchar(100)        NOT NULL DEFAULT '' COMMENT '需求细节',
     PRIMARY KEY (`number`)
+
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT ='需求表';
 
+
+
+
 CREATE TABLE `user`
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> test
 
 
 (
