@@ -56,6 +56,7 @@ CREATE TABLE `college_class`
   AUTO_INCREMENT = 5
   DEFAULT CHARSET = utf8mb4 COMMENT ='学生课程表';
 
+
 CREATE TABLE `select_class`
 (
     `sno`   char(8) NOT NULL COMMENT '学号',
