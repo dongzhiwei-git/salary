@@ -113,8 +113,15 @@ CREATE TABLE `print`
     `scheme`    char                NOT NULL DEFAULT '' COMMENT '方案 ',
     `money`     bigint(20)          NOT NULL DEFAULT 0 COMMENT 'salary',
     PRIMARY KEY (`id`)
+
+
+
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT ='打印表';
+
+
+
+
 
 
 
