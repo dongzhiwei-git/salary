@@ -116,10 +116,14 @@ CREATE TABLE `print`
 
 
 
+
+
+
+
 ) ENGINE = InnoDB
 
 
-    
+
 
   DEFAULT CHARSET = utf8mb4 COMMENT ='打印表';
 
