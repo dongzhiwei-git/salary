@@ -108,8 +108,12 @@ CREATE TABLE `user`
 CREATE TABLE `print`
 (
     `id`        bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+
+
     `user_name` varchar(20)         NOT NULL DEFAULT '' COMMENT '姓名',
     `num`       bigint(20)          NOT NULL DEFAULT 0 COMMENT '工号',
+
+    
     `scheme`    char                NOT NULL DEFAULT '' COMMENT '方案 ',
     `money`     bigint(20)          NOT NULL DEFAULT 0 COMMENT 'salary',
     PRIMARY KEY (`id`)
@@ -145,7 +149,7 @@ CREATE TABLE `code`
     `id`   bigint(20) unsigned NOT NULL AUTO_INCREMENT,
     `code` varchar(20)         NOT NULL DEFAULT '' COMMENT '验证码',
 
-    
+
     PRIMARY KEY (`id`)
 
 
