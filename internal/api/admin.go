@@ -54,11 +54,17 @@ func GetAdminUser(ctx *gin.Context) {
 	if err != nil {
 		fmt.Printf("[api.CreateAdminUser], Parameter parsing error")
 <<<<<<< HEAD
+<<<<<<< HEAD
 		ctx.JSON(http.StatusOK, gin.H{
 			"date": "格式不对",
 		})
 =======
 >>>>>>> 81203b5 (选择A，B)
+=======
+		ctx.JSON(http.StatusOK, gin.H{
+			"date": "格式不对",
+		})
+>>>>>>> be39e95 (修改一些gorm)
 		return
 	}
 	num := adminUser.Num
@@ -70,6 +76,7 @@ func GetAdminUser(ctx *gin.Context) {
 	}
 
 	sysUser := new(services.SysUser)
+<<<<<<< HEAD
 <<<<<<< HEAD
 	adminInfo, err := sysUser.GetSysUser(num, password)
 	if err != nil {
@@ -83,16 +90,29 @@ func GetAdminUser(ctx *gin.Context) {
 		fmt.Printf("[api.CreateAdminUser], err: %v", err)
 
 >>>>>>> 81203b5 (选择A，B)
+=======
+	adminInfo, err := sysUser.GetSysUser(num, password)
+	if err != nil {
+		fmt.Printf("[api.CreateAdminUser], err: %v", err)
+		ctx.JSON(http.StatusOK, gin.H{
+			"msg": "账号或密码不对",
+		})
+>>>>>>> be39e95 (修改一些gorm)
 		return
 	}
 
 	ctx.JSON(http.StatusOK, gin.H{
+<<<<<<< HEAD
 <<<<<<< HEAD
 		"msg": "登录成功",
 		"data": adminInfo,
 =======
 		"date": userInfo,
 >>>>>>> 81203b5 (选择A，B)
+=======
+		"msg": "登录成功",
+		"data": adminInfo,
+>>>>>>> be39e95 (修改一些gorm)
 	})
 
 	return
@@ -105,10 +125,14 @@ func CreateSubInfo(ctx *gin.Context) {
 	err := ctx.BindJSON(&info)
 	if err != nil {
 <<<<<<< HEAD
+<<<<<<< HEAD
 		fmt.Println("[api.CreateAdminUser], Parameter parsing error", err)
 =======
 		fmt.Printf("[api.CreateAdminUser], Parameter parsing error")
 >>>>>>> 81203b5 (选择A，B)
+=======
+		fmt.Println("[api.CreateAdminUser], Parameter parsing error", err)
+>>>>>>> be39e95 (修改一些gorm)
 		return
 	}
 
