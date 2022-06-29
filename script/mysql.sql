@@ -53,8 +53,10 @@ CREATE TABLE `college_class`
     `describe` varchar(100) COMMENT '课程描述',
     PRIMARY KEY (`cno`)
 ) ENGINE = InnoDB
+
   AUTO_INCREMENT = 5
   DEFAULT CHARSET = utf8mb4 COMMENT ='学生课程表';
+
 
 CREATE TABLE `select_class`
 (
@@ -64,6 +66,7 @@ CREATE TABLE `select_class`
     PRIMARY KEY (`sno`),
     FOREIGN KEY (`sno`) REFERENCES student_set (`sno`),
     FOREIGN KEY (`cno`) REFERENCES college_class (`cno`)
+
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 5
   DEFAULT CHARSET = utf8mb4 COMMENT ='学生成绩表';
