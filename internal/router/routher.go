@@ -30,7 +30,9 @@ func InitRouter() {
 	err := r.Run(":26667")
 	if err != nil {
 		fmt.Printf("run failed: %v\n", err)
+
 		return
+
 
 	}
 
